@@ -10,10 +10,10 @@ class loops
         }
     }
     
-    public static void main(String a[]) {
+    public static void main1(String a[]) {
         int i = 1;
         do { 
-            system.out.println("jeswin");
+            System.out.println("jeswin");
             i++;
         }
         while (i <= 8); 
