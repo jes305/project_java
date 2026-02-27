@@ -6,6 +6,11 @@
 
 public class Student {
 
+    
+    public String name;
+    public int rollno;
+    public int mark;
+
     public Student() {
     }
 
