@@ -1,31 +1,47 @@
 import java.util.Scanner;
 
+class PasswordChecker extends Password {
+
+    public PasswordChecker(String password) {
+        super(password);
+    }
+
+    @Override
+    public void checkStrength() throws Exception {
+
+        String p = getPassword();
+
+        if (p.length() < 8)
+            throw new Exception("Password must be at least 8 characters");
+
+        if (!p.matches(".*[A-Z].*"))
+            throw new Exception("Add an uppercase letter");
+
+        if (!p.matches(".*[0-9].*"))
+            throw new Exception("Add a number");
+
+        System.out.println("Strong Password ✅");
+    }
+}
+
 public class Main {
+
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        LoginSystem system = new LoginSystem();
+
+        System.out.print("Enter password: ");
+        String pass = sc.nextLine();
+
+        Password p = new PasswordChecker(pass);
 
         try {
-            System.out.print("Register Username: ");
-            String username = sc.nextLine();
-
-            System.out.print("Register Password: ");
-            String password = sc.nextLine();
-
-            system.validatePassword(password);
-
-            User user = new User(username, password);
-
-            System.out.println("Registration Successful!\n");
-
-            while (true) {
-                System.out.print("Enter password to login: ");
-                String loginPass = sc.nextLine();
-                system.login(user, loginPass);
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            p.checkStrength();
+        } 
+        catch (Exception e) {
+            System.out.println("Weak Password: " + e.getMessage());
         }
+
+        sc.close();
     }
 }
