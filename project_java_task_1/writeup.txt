@@ -1,0 +1,15 @@
+by using jadx on the apk file 
+
+first serached for the keyword password etc and nothing found then searched for the main activiy of the apk file 
+then it is given a
+public void submitPassword(View view) {
+        EditText editText = (EditText) findViewById(R.id.editText2);
+        if (DigestUtils.md5Hex(editText.getText().toString()).equalsIgnoreCase("b74dec4f39d35b6a2e6c48e637c8aedb")) {
+            ((TextView) findViewById(R.id.textView)).setText("Success! CTFlearn{" + editText.getText().toString() + "_is_not_secure!}");
+        }
+
+on this it will check for the flag when user enter the correct flag here it is given in hashed way so when the user enter the flag it will check the hash 
+and give tha flag if password is correct
+        so decrypt the md5 hash b74dec4f39d35b6a2e6c48e637c8aedb 
+        password = Spring2019
+        flag=CTFlearn{Spring2019_is_not_secure!}
