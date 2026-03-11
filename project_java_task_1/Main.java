@@ -5,7 +5,6 @@ class PasswordChecker extends Password {
     public PasswordChecker(String password) {
         super(password);
     }
-
     @Override
     public void checkStrength() throws Exception {
 
@@ -20,7 +19,7 @@ class PasswordChecker extends Password {
         if (!p.matches(".*[0-9].*"))
             throw new Exception("Add a number");
 
-        System.out.println("Strong Password ✅");
+        System.out.println("Strong Password ");
     }
 }
 
