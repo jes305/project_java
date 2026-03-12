@@ -6,5 +6,4 @@ abstract class Password {
     public String getPassword() {
         return password;
     }
-    public abstract void checkStrength() throws Exception;
 }
